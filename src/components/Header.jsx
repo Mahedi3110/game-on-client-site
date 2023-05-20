@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { GiGamepad } from "react-icons/gi";
 import { AuthContext } from '../provider/AuthProvider';
 import { Navbar, Spinner, Tooltip } from 'flowbite-react';
+import { IoIosLogOut } from "react-icons/io";
 
 const Header = () => {
     const { user, loading, logOut } = useContext(AuthContext)
@@ -18,29 +20,19 @@ const Header = () => {
     return (
         <div>
             <Navbar
-                className='bg-teal-50 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600'
+                className='!bg-black fixed w-full z-20 top-0 left-0 !px-10 shadow-xl shadow-black'
                 fluid={true}
-                rounded={true}
             >
                 <Link
                     to='/'
-                    className='flex'
-                >
-                    <img
-                        src="https://www.linkpicture.com/q/favpng_masterchef-logo-television-show-wordmark.png"
-                        className="mr-3 h-10"
-                        alt="Master Chef Logo"
-                    />
-                    <span className="self-center whitespace-nowrap text-2xl text-teal-600 font-bold dark:text-white">
-                        Master Chef
-                    </span>
-                </Link>
+                    className='text-orange-400 flex font-bold text-3xl'
+                >GA<GiGamepad className='-mt-1 text-5xl -ml-1' /><span className='-ml-1.5 mr-3'>E</span> ON</Link>
                 <div className="flex md:order-2">
                     {loading ?
                         <Spinner className='mt-3 mb-2 mr-16 ml-9' aria-label="Default status example" />
                         :
                         user ? <div className='flex items-center'>
-                            <NavLink className={({ isActive }) => isActive ? 'text-blue-700 mx-7 mt-1' : 'my-1 mx-7 hover:text-blue-500'} to="/profile">
+                            <NavLink className={({ isActive }) => isActive ? 'text-blue-700 mt-1' : 'my-1 hover:text-blue-500'} to="/profile">
                                 {
                                     pic > 12 ?
                                         <Tooltip content={user.displayName}>
@@ -53,10 +45,12 @@ const Header = () => {
                                 }
                             </NavLink>
                             <Tooltip content='Log out'>
-                                <i onClick={handleLogOut} className="fa-solid fa-right-from-bracket text-3xl cursor-pointer text-teal-700 hover:text-teal-900 mr-4"></i>
+                                <button className='btn btn-link'>
+                                    <IoIosLogOut onClick={handleLogOut} className="text-3xl text-orange-400 hover:text-orange-600" />
+                                </button>
                             </Tooltip>
                         </div> :
-                            <NavLink to="/join" className="btn bg-teal-600 hover:bg-teal-800 normal-case border-0 font-bold rounded-lg px-12 text-center mr-3 md:mr-0 text-md">Join</NavLink>
+                            <NavLink to="/login" className="btn hover:bg-gradient-to-r hover:from-orange-400 hover:to-amber-500 normal-case border-4 border-orange-400 font-bold rounded-full px-6 hover:border-0 hover:px-7 hover:text-white bg-transparent text-center mr-3 md:mr-0 text-orange-400 text-lg">Login</NavLink>
                     }
 
                     <Navbar.Toggle />
@@ -64,28 +58,59 @@ const Header = () => {
                 <Navbar.Collapse>
                     <div className='mb-3 md:mb-0'>
                         <NavLink
-                            className={({ isActive }) => isActive ? 'text-teal-600 mx-5 font-bold border-b-2 border-teal-600' : 'mx-5 hover:text-teal-600 hover:border-b-2 hover:border-teal-600'}
+                            className={({ isActive }) => isActive ? 'py-2 px-3 text-white bg-orange-400 mx-2 font-bold rounded-full border-orange-400' : 'hover:bg-orange-400 py-2 px-3 rounded-full hover:text-white mx-2 text-orange-400'}
                             to="/">
                             Home
                         </NavLink>
                     </div>
                     <div className='mb-3 md:mb-0'>
                         <NavLink
-                            className={({ isActive }) => isActive ? 'text-teal-600 mx-5 font-bold border-b-2 border-teal-600' : 'mx-5 hover:text-teal-600 hover:border-b-2 hover:border-teal-600'}
-                            to="/hireChef">
-                            Hire Chef
+                            className={({ isActive }) => isActive ? 'py-2 px-3 text-white bg-orange-400 mx-2 font-bold rounded-full border-orange-400' : 'hover:bg-orange-400 py-2 px-3 rounded-full hover:text-white mx-2 text-orange-400'}
+                            to="/all-products">
+                            All Products
                         </NavLink>
                     </div>
+
+                    {
+                        loading ?
+                            <Spinner className='mt-3 mb-2 mr-16 ml-9' aria- label="Default status example" />
+                            :
+                            user ? <div className='mb-3 md:mb-0'>
+                                <NavLink
+                                    className={({ isActive }) => isActive ? 'py-2 px-3 text-white bg-orange-400 mx-2 font-bold rounded-full border-orange-400' : 'hover:bg-orange-400 py-2 px-3 rounded-full hover:text-white mx-2 text-orange-400'}
+                                    to="/my-choice">
+                                    My Choice
+                                </NavLink>
+                            </div>
+                                :
+                                <></>
+                    }
+
+                    {
+                        loading ?
+                            <Spinner className='mt-3 mb-2 mr-16 ml-9' aria- label="Default status example" />
+                            :
+                            user ? <div className='mb-3 md:mb-0'>
+                                <NavLink
+                                    className={({ isActive }) => isActive ? 'py-2 px-3 text-white bg-orange-400 mx-2 font-bold rounded-full border-orange-400' : 'hover:bg-orange-400 py-2 px-3 rounded-full hover:text-white mx-2 text-orange-400'}
+                                    to="/add-product">
+                                    Add A Product
+                                </NavLink>
+                            </div>
+                                :
+                                <></>
+                    }
+
                     <div className='mb-3 md:mb-0'>
                         <NavLink
-                            className={({ isActive }) => isActive ? 'text-teal-600 mx-5 font-bold border-b-2 border-teal-600' : 'mx-5 hover:text-teal-600 hover:border-b-2 hover:border-teal-600'}
-                            to="/about">
+                            className={({ isActive }) => isActive ? 'py-2 px-3 text-white bg-orange-400 mx-2 font-bold rounded-full border-orange-400' : 'hover:bg-orange-400 py-2 px-3 rounded-full hover:text-white mx-2 text-orange-400'}
+                            to="/About">
                             About
                         </NavLink>
                     </div>
                     <div className='mb-3 md:mb-0'>
                         <NavLink
-                            className={({ isActive }) => isActive ? 'text-teal-600 mx-5 font-bold border-b-2 border-teal-600' : 'mx-5 hover:text-teal-600 hover:border-b-2 hover:border-teal-600'}
+                            className={({ isActive }) => isActive ? 'py-2 px-3 text-white bg-orange-400 mx-2 font-bold rounded-full border-orange-400' : 'hover:bg-orange-400 py-2 px-3 rounded-full hover:text-white mx-2 text-orange-400'}
                             to="/blog">
                             Blog
                         </NavLink>
