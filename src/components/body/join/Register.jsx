@@ -4,6 +4,7 @@ import useTitle from '../../../hooks/useTitle';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { Toaster, toast } from 'react-hot-toast';
 import { updateProfile } from 'firebase/auth';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 const Register = () => {
 
@@ -108,7 +109,7 @@ const Register = () => {
                                                 <input type={showPass2 ? 'text' : 'password'} placeholder="password" name='password' className={border1 ? "input input-bordered w-full border-gray-300" : "input input-bordered w-full border-red-700"} required />
                                                 <div className='absolute top-3 right-3'>
                                                     {
-                                                        showPass2 ? <i onClick={() => setShowPass2(!showPass2)} className="fa-regular fa-eye cursor-pointer"></i> : <i onClick={() => setShowPass2(!showPass2)} className="fa-regular fa-eye-slash cursor-pointer"></i>
+                                                        showPass2 ? <AiFillEye onClick={() => setShowPass2(!showPass2)} className="cursor-pointer text-2xl text-orange-500" /> : <AiFillEyeInvisible onClick={() => setShowPass2(!showPass2)} className="cursor-pointer text-2xl text-orange-500" />
                                                     }
                                                 </div>
                                             </div>

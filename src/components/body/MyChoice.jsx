@@ -6,7 +6,7 @@ const MyChoice = () => {
     useTitle("My Choice")
 
     return (
-        <div>
+        <div className='bg-black h-screen'>
 
         </div>
     );

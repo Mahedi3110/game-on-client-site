@@ -6,7 +6,7 @@ const AddProduct = () => {
     useTitle("Add A Product")
 
     return (
-        <div>
+        <div className='bg-black h-screen'>
 
         </div>
     );
