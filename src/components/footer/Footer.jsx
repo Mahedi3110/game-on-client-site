@@ -6,7 +6,7 @@ import { GiGamepad } from 'react-icons/gi';
 
 const Footer = () => {
     return (
-        <div className='md:px-28 px-10 bg-black text-white py-16'>
+        <div className='md:px-20 px-10 bg-black text-white py-16'>
             <div className='grid md:grid-cols-6 grid-cols-3 gap-10 mx-4 mb-5'>
                 <div className='col-span-2'>
                     <Link

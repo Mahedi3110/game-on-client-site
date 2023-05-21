@@ -93,7 +93,7 @@ const Login = () => {
                             <div className="form-control mt-6 flex flex-col items-center">
                                 <button type='submit' className="btn w-full 
                                 bg-gradient-to-r from-orange-400 to-amber-500 border-0 hover:bg-gradient-to-r hover:from-orange-600 hover:to-orange-600
-                                normal-case font-bold text-lg">Login</button>
+                                normal-case font-bold text-lg rounded-full">Login</button>
                                 <p className='ml-2'>Don't have an account? <Link to="/register" className="btn modal-button normal-case text-orange-400 hover:text-orange-600 btn-link p-0 ml-1">Please Register.</Link></p>
                             </div>
                         </form>
@@ -113,13 +113,13 @@ const Login = () => {
                         clicked ?
                             <div className='flex flex-col items-center'>
                                 <p className='text-center mx-5 my-5'>We just send a password recovery mail to you. Check your email and click the link in it. And then set a new password</p>
-                                <button onClick={() => setClicked(false)} className='btn text-lg normal-case font-bold bg-gradient-to-r from-orange-400 to-amber-500 border-0 hover:bg-gradient-to-r hover:from-orange-600 hover:to-orange-600'>Send again</button>
+                                <button onClick={() => setClicked(false)} className='btn text-lg normal-case font-bold bg-gradient-to-r from-orange-400 to-amber-500 border-0 hover:bg-gradient-to-r rounded-full hover:from-orange-600 hover:to-orange-600'>Send again</button>
                             </div>
                             :
                             <form onSubmit={recoverPassword} className='flex flex-col mt-5 mb-3'>
                                 <p className='text-center mx-5 mb-5'>If you forgot your password and want to recover it then put your eamil here and click the submit button</p>
                                 <input type="email" id='email' name='email' placeholder='email' className='mx-5 rounded-lg' required />
-                                <input type='submit' value='Submit' className='btn text-lg mx-5 mt-5 normal-case font-bold bg-gradient-to-r from-orange-400 to-amber-500 border-0 hover:bg-gradient-to-r hover:from-orange-600 hover:to-orange-600' />
+                                <input type='submit' value='Submit' className='btn rounded-full text-lg mx-5 mt-5 normal-case font-bold bg-gradient-to-r from-orange-400 to-amber-500 border-0 hover:bg-gradient-to-r hover:from-orange-600 hover:to-orange-600' />
                             </form>
                     }
                 </div>

@@ -31,7 +31,7 @@ const Home = () => {
             <div className='bgImg height flex items-center flex-col shadow-inner shadow-black'>
                 <h1 data-aos="fade-down" className='text-6xl font-bold text-white text-center mt-36 animate__animated animate__fadeInDown'><span className='text-orange-400'>Explore </span>the gaming world <br /> with <span className='text-orange-400'>Game On</span></h1>
                 <p className='text-gray-400 mt-5 mx-40 text-center animate__animated animate__fadeInUp'>Discover a world of gaming excellence at our online store. We offer a vast selection of top-quality gaming products, from consoles and accessories to the latest game releases. Browse our user-friendly website and find the perfect gear to enhance your gaming experience. With secure payment options and fast shipping, we're your go-to destination for all your gaming needs. Elevate your play today!</p>
-                <Link to="/all-products" className='btn mt-20 normal-case bg-orange-400 hover:bg-orange-600 w-60 text-lg font-bold animate__animated animate__fadeInUp'>Check Our All Products</Link>
+                <Link to="/all-products" className='btn rounded-full mt-20 normal-case bg-orange-400 hover:bg-orange-600 w-60 text-lg font-bold animate__animated animate__fadeInUp'>Check Our All Products</Link>
             </div>
 
             <div
@@ -124,7 +124,7 @@ const Home = () => {
                     data-aos="fade-up"
                     data-aos-easing="linear"
                     data-aos-duration="500"
-                    to="/login" className='btn mt-16 normal-case bg-orange-400 hover:bg-orange-600 w-60 text-lg font-bold animate__animated animate__fadeInUp'>Join</Link>
+                    to="/login" className='btn mt-16 normal-case rounded-full bg-orange-400 hover:bg-orange-600 w-60 text-lg font-bold animate__animated animate__fadeInUp'>Join</Link>
             </div>
 
             <div

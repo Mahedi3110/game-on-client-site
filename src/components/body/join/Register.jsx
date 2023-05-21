@@ -118,14 +118,14 @@ const Register = () => {
                                 </div>
                                 <div className='flex justify-center mt-3'>
                                     <input onChange={check} className='mt-4 rounded-sm mr-2' type="checkbox" />
-                                    <p>Accept our<Link to='/about' className='btn btn-link -ml-3 text-teal-600'>terms and conditions</Link></p>
+                                    <p>Accept our<Link to='/about' className='btn btn-link -ml-3 text-orange-600'>terms and conditions</Link></p>
                                 </div>
                                 <div className="form-control mt-3 modal-action">
                                     {
                                         desable ?
-                                            <button className="btn w-3/5 mx-auto bg-teal-700 hover:bg-teal-950" disabled>Sign Up</button>
+                                            <button className="btn w-3/5 rounded-full border-0 mx-auto bg-orange-400 hover:bg-orange-600" disabled>Sign Up</button>
                                             :
-                                            <button className="btn w-3/5 mx-auto bg-teal-700 hover:bg-teal-950">Sign Up</button>
+                                            <button className="btn w-3/5 rounded-full border-0 mx-auto bg-orange-400 hover:bg-orange-600">Sign Up</button>
                                     }
                                     <p className='ml-2 text-center'>Already have an account? <Link to="/login" className="btn modal-button normal-case text-orange-400 hover:text-orange-600 btn-link p-0 ml-1">Please Login.</Link></p>
                                 </div>
