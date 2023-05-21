@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Link } from 'react-router-dom';
 
-const CategoryData = ({ ctg }) => {
+const ShowAllProducts = ({ ctg }) => {
 
     const [mod, setMod] = useState([])
     const view1 = (props) => {
@@ -76,4 +76,4 @@ const CategoryData = ({ ctg }) => {
     );
 };
 
-export default CategoryData;
+export default ShowAllProducts;

@@ -3,8 +3,11 @@ import { Toaster, toast } from 'react-hot-toast';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import useTitle from '../../../hooks/useTitle';
 
 const Login = () => {
+
+    useTitle("Login")
 
     const { joinByGoogle, logIn, resetPassword, setLoading } = useContext(AuthContext)
     const navigate = useNavigate()
@@ -35,13 +38,10 @@ const Login = () => {
         const password = event.target.password.value;
         logIn(email, password)
             .then(result => {
-                console.log(result.user)
-                const logInUser = result.user;
                 navigate(from, { replace: true })
                 setLoading(false)
             })
             .catch(error => {
-                console.log(error.message);
                 wrongIDPass()
                 setBorder3(false)
                 setLoading(false)
@@ -61,8 +61,12 @@ const Login = () => {
     }
 
     return (
-        <div className="hero min-h-80 pt-32 pb-20 bg-black">
-            <div className="hero-content flex-col lg:flex-row-reverse pt-0 md:w-4/12 w-10/12">
+        <div className="hero min-h-80 pt-32 pb-32 bg-black">
+            <div
+                data-aos="fade-up"
+                data-aos-easing="linear"
+                data-aos-duration="500"
+                className="hero-content flex-col lg:flex-row-reverse pt-0 md:w-4/12 w-10/12">
                 <div className="card flex-shrink-0 w-full shadow-2xl bg-orange-200">
                     <div className="card-body">
                         <form onSubmit={handleLogin}>

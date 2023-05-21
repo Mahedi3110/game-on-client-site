@@ -15,6 +15,7 @@ import MyChoice from './components/body/MyChoice.jsx'
 import AddProduct from './components/body/AddProduct.jsx'
 import PrivateRoute from './privateRoute/PrivateRoute.jsx';
 import Home from './components/body/home/Home.jsx';
+import SingleProduct from '../public/SingleProduct.js';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-products",
-        element: <AllProducts></AllProducts>
+        element: <AllProducts></AllProducts>,
+        loader: SingleProduct
       },
       {
         path: "/about",

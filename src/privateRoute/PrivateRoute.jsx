@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation()
     if (loading) {
         return (
-            <div className='h-screen flex justify-center items-center'>
+            <div className='h-screen bg-black flex justify-center items-center'>
                 <Spinner
                     aria-label="Extra large spinner example"
                     size="xl"
@@ -19,7 +19,7 @@ const PrivateRoute = ({ children }) => {
     if (user) {
         return children
     }
-    return <Navigate to="/join" state={{ from: location }} replace={true}></Navigate>
+    return <Navigate to="/login" state={{ from: location }} replace={true}></Navigate>
 };
 
 export default PrivateRoute;

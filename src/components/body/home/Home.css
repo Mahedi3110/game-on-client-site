@@ -5,8 +5,15 @@
     background-repeat: no-repeat;
     background-blend-mode: darken;
     background-attachment: fixed;
+    height: 42vw;
 }
 
-.height {
+.bgImg2 {
+    background: rgba(0, 0, 0, 0.7)url('https://i.ibb.co/27Y6vB2/pexels-lalesh-aldarwish-194511.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    background-attachment: fixed;
     height: 42vw;
 }
