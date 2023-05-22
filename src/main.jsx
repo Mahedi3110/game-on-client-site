@@ -16,7 +16,9 @@ import AddProduct from './components/body/AddProduct.jsx'
 import PrivateRoute from './privateRoute/PrivateRoute.jsx';
 import Home from './components/body/home/Home.jsx';
 import SingleProduct from '../public/SingleProduct.js';
+import SoloProduct from '../public/SoloProduct.js';
 import ViewDetails from './components/body/ViewDetails.jsx';
+import ViewProduct from './components/body/ViewProduct.jsx';
 
 const router = createBrowserRouter([
   {
@@ -42,8 +44,8 @@ const router = createBrowserRouter([
       {
         path: "/all-products",
         element: <AllProducts></AllProducts>,
-        loader: async ({ params }) => {
-          return fetch(`http://localhost:7000/choiceList`);
+        loader: async () => {
+          return fetch(`http://localhost:7000/addList`);
         }
       },
       {
@@ -70,6 +72,11 @@ const router = createBrowserRouter([
         path: "/view-details/:id",
         element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
         loader: SingleProduct
+      },
+      {
+        path: "/view-product/:id",
+        element: <PrivateRoute><ViewProduct></ViewProduct></PrivateRoute>,
+        loader: SoloProduct
       }
     ]
   },

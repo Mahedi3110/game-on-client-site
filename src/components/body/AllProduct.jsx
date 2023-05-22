@@ -15,7 +15,7 @@ const AllProduct = () => {
         <div className='bg-black pt-20 pb-32'>
             <div className='text-white mt-10 text-xl mx-24'>
                 <ol className='grid grid-cols-6 mt-5 bg-orange-400 text-black text-sm px-10 py-3 rounded-full'>
-                    <p>Seller</p>
+                    <p>Seller Name</p>
                     <p className='col-span-2'>Product Name</p>
                     <p className='text-end'>Price</p>
                     <p className='text-end -mr-7'>Available Quantity</p>
