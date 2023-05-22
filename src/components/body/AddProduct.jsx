@@ -14,7 +14,7 @@ const AddProduct = () => {
     const handleForm = (event) => {
         event.preventDefault()
         const photo = event.target.photo.value;
-        const productName = event.target.productName.value;
+        const name = event.target.name.value;
         const sellerName = event.target.sellerName.value;
         const email = event.target.email.value;
         const category = event.target.category.value;
@@ -22,7 +22,7 @@ const AddProduct = () => {
         const rating = event.target.rating.value;
         const quantity = event.target.quantity.value;
         const about = event.target.about.value;
-        const addToDB = { photo, productName, sellerName, email, category, price, rating, quantity, about }
+        const addToDB = { photo, name, sellerName, email, category, price, rating, quantity, about }
         // send data to the server
         fetch('http://localhost:7000/addList', {
             method: 'POST',
@@ -59,7 +59,7 @@ const AddProduct = () => {
                                             <label className="label">
                                                 <span className="label-text">Product Name</span>
                                             </label>
-                                            <input type="text" placeholder="product name" name='productName' className="input input-bordered" required />
+                                            <input type="text" placeholder="product name" name='name' className="input input-bordered" required />
                                         </div>
                                         <div className="form-control">
                                             <label className="label">

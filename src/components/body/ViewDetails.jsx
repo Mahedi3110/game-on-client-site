@@ -61,7 +61,7 @@ const ViewDetails = () => {
 
     return (
         <div className='bg-black pt-32 pb-64 text-white'>
-            <div className='mx-20 h-screen mb-28'>
+            <div className='mx-20 h-screen mb-56'>
                 <div className='grid grid-cols-12 gap-10'>
                     <div
                         data-aos="fade-up"

@@ -10,27 +10,45 @@ const AllProduct = () => {
     const loaderDatas = useLoaderData()
 
     const [show, setShow] = useState(false);
+    const [query, setQuery] = useState("");
 
     return (
         <div className='bg-black pt-20 pb-32'>
             <div className='text-white mt-10 text-xl mx-24'>
-                <ol className='grid grid-cols-6 mt-5 bg-orange-400 text-black text-sm px-10 py-3 rounded-full'>
+                <div className='flex justify-center items-center'>
+                    <p className='text-orange-400 font-bold mr-2'>Search</p>
+                    <input onChange={event => setQuery(event.target.value)} className='w-2/5 text-black rounded-full' type="search" name='search' placeholder='search product name' />
+                </div>
+                <ol className='grid grid-cols-6 gap-3 mt-5 bg-orange-400 text-black text-sm px-10 py-3 rounded-full'>
                     <p>Seller Name</p>
-                    <p className='col-span-2'>Product Name</p>
+                    <p>Product Name</p>
+                    <p className='text-end'>Sub-category</p>
                     <p className='text-end'>Price</p>
                     <p className='text-end -mr-7'>Available Quantity</p>
                     <p className='text-end'>View Details</p>
                 </ol>
                 {show ?
-                    loaderDatas.map(ctg =>
+                    loaderDatas.filter(post => {
+                        if (query === '') {
+                            return post;
+                        } else if (post?.name?.toLowerCase().includes(query.toLowerCase())) {
+                            return post;
+                        }
+                    }).map(ctg =>
                         <ShowAllProducts
-                            key={ctg.id}
+                            key={ctg._id}
                             ctg={ctg}
                         ></ShowAllProducts>)
                     :
-                    loaderDatas.slice(0, 21).map(ctg =>
+                    loaderDatas.filter(post => {
+                        if (query === '') {
+                            return post;
+                        } else if (post?.name?.toLowerCase().includes(query.toLowerCase())) {
+                            return post;
+                        }
+                    }).slice(0, 21).map(ctg =>
                         <ShowAllProducts
-                            key={ctg.id}
+                            key={ctg._id}
                             ctg={ctg}
                         ></ShowAllProducts>)
                 }

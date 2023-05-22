@@ -1,67 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import useTitle from '../../hooks/useTitle';
 import { useLoaderData, useParams } from 'react-router-dom';
-import { AuthContext } from '../../provider/AuthProvider';
-import { Toaster, toast } from 'react-hot-toast';
-import { addToLS, getLSdata } from '../../../public/fakeDB'
 
 const ViewProduct = () => {
 
-    useTitle("View Details")
-
-    const [match, setMatch] = useState(false)
-
-    const added = () => toast("You add this product.")
-
-    const { user } = useContext(AuthContext)
+    useTitle("View Product")
 
     const paramsData = useParams();
     const loaderDatas = useLoaderData();
 
-    const data = loaderDatas.find(loaderData => loaderData.id === paramsData.id)
-    const { about, id, name, photo, price } = data;
-
-    const check = getLSdata()
-
-    useEffect(() => {
-        const getProductData = Object.keys(getLSdata());
-        const same = getProductData.find(id => id === data.id)
-        setMatch(same)
-    }, [check])
-
-    const choose = (props) => {
-        if (match) {
-            console.log(match);
-        }
-        else {
-            addToLS(props)
-            setMatch(true)
-        }
-    }
-
-    const add = () => {
-        choose(data.id)
-        const email = user.email;
-        const addableData = { about, id, name, photo, price, email };
-        // send data to the server
-        fetch('http://localhost:7000/choiceList', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(addableData)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
-                    added();
-                }
-            })
-    }
+    const data = loaderDatas.find(loaderData => loaderData._id === paramsData.id)
 
     return (
-        <div className='bg-black pt-32 pb-64 text-white'>
-            <div className='mx-20 h-screen mb-28'>
+        <div className='bg-black pt-32 pb-20 text-white'>
+            <div className='mx-20 h-screen'>
                 <div className='grid grid-cols-12 gap-10'>
                     <div
                         data-aos="fade-up"
@@ -77,34 +29,20 @@ const ViewProduct = () => {
                         className='col-span-6 flex flex-col justify-evenly'>
                         <h3 className="text-2xl font-bold text-orange-400">{data?.name}</h3>
                         <div>
-                            <p className='text-lg font-bold text-orange-400'>About</p>
-                            <p>{data?.about}</p>
-                        </div>
-                        <div>
                             <p className='text-orange-400'>Category: <span className='text-lg font-bold text-white'>{data?.category}</span> </p>
                             <p className='text-orange-400'>Ratting: <span className='text-lg font-bold text-white'>{data?.rating}</span> </p>
                             <p className='text-orange-400'>Available Quantity: <span className='text-lg font-bold text-white'>{data?.quantity}</span></p>
                             <p className='text-orange-400'>Seller Name: <span className='text-lg font-bold text-white'>{data?.sellerName}</span></p>
                             <p className='text-orange-400'>Saller Email: <span className='text-lg font-bold text-white'>{data?.email}</span></p>
                         </div>
+                        <div>
+                            <p className='text-lg font-bold text-orange-400'>About</p>
+                            <p>{data?.about}</p>
+                        </div>
                         <p className='text-xl font-bold rounded-xl text-orange-400'>Price: <span className='text-3xl text-white'>{data?.price} tk</span></p>
-                        {
-                            match ?
-                                <button disabled onClick={add} className='btn bg-orange-400 hover:bg-orange-600 mt-10 w-2/5'>Add this product</button>
-                                :
-                                <button onClick={add} className='btn bg-orange-400 hover:bg-orange-600 mt-10 w-2/5'>Add this product</button>
-                        }
                     </div>
                 </div>
             </div>
-
-            <Toaster
-                toastOptions={{
-                    style: {
-                        padding: '16px',
-                    },
-                }}
-            />
         </div>
     );
 };

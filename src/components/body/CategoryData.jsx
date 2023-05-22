@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react';
-import { AuthContext } from '../../provider/AuthProvider';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CategoryData = ({ ctg }) => {

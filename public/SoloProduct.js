@@ -1,13 +1,10 @@
 const SoloProduct = async () => {
-    const res = await fetch(`http://localhost:7000/category`);
+    const res = await fetch(`http://localhost:7000/addList`);
     const datas = await res.json();
 
     const allData = [];
     for (const data of datas) {
-        const allProducts = data.product
-        for (const product of allProducts) {
-            allData.push(product)
-        }
+        allData.push(data)
     }
     return allData;
 };
