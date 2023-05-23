@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 const ShowAllProducts = ({ ctg }) => {
 
     return (
-        <ol className='grid grid-cols-6 gap-3 mt-5 bg-orange-200 text-black text-sm px-10 py-3 text-center rounded-full'>
+        <ol
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="700"
+            className='grid grid-cols-6 gap-3 mt-5 bg-orange-200 text-black text-sm px-10 py-3 text-center rounded-full'>
             <p>{ctg?.sellerName}</p>
             <p>{ctg?.name}</p>
             <p>{ctg?.category}</p>

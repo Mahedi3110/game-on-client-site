@@ -15,11 +15,19 @@ const AllProduct = () => {
     return (
         <div className='bg-black pt-20 pb-32'>
             <div className='text-white mt-10 text-xl mx-24'>
-                <div className='flex justify-center items-center'>
+                <div
+                    data-aos="fade-up"
+                    data-aos-easing="linear"
+                    data-aos-duration="400"
+                    className='flex justify-center items-center'>
                     <p className='text-orange-400 font-bold mr-2'>Search</p>
                     <input onChange={event => setQuery(event.target.value)} className='w-2/5 text-black rounded-full' type="search" name='search' placeholder='search product name' />
                 </div>
-                <ol className='grid grid-cols-6 gap-3 mt-5 bg-orange-400 text-black text-center text-sm px-10 py-3 rounded-full'>
+                <ol
+                    data-aos="fade-up"
+                    data-aos-easing="linear"
+                    data-aos-duration="500"
+                    className='grid grid-cols-6 gap-3 mt-5 bg-orange-400 text-black text-center text-sm px-10 py-3 rounded-full'>
                     <p>Seller Name</p>
                     <p>Product Name</p>
                     <p>Sub-category</p>

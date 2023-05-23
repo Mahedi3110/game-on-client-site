@@ -13,7 +13,32 @@ const Update = () => {
     const data = loaderDatas.find(loaderData => loaderData._id === paramsData.id)
 
     const handleForm = (event) => {
-        console.log(event);
+        event.preventDefault();
+        const photo = event.target.photo.value;
+        const name = event.target.name.value;
+        const sellerName = event.target.sellerName.value;
+        const email = event.target.email.value;
+        const category = event.target.category.value;
+        const price = event.target.price.value;
+        const rating = event.target.rating.value;
+        const quantity = event.target.quantity.value;
+        const about = event.target.about.value;
+
+        const updatedValue = { photo, name, sellerName, email, category, price, rating, quantity, about }
+
+        fetch(`http://localhost:7000/addList/${data._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedValue)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    alert("update successfully")
+                }
+            })
     }
 
     return (
@@ -36,26 +61,26 @@ const Update = () => {
                                                 <label className="label">
                                                     <span className="label-text">Product Name</span>
                                                 </label>
-                                                <input type="text" placeholder="product name" name='name' className="input input-bordered" required />
+                                                <input type="text" placeholder="product name" name='name' className="input input-bordered" required defaultValue={data.name} />
                                             </div>
                                             <div className="form-control">
                                                 <label className="label">
                                                     <span className="label-text">Seller Name</span>
                                                 </label>
-                                                <input type="text" name='sellerName' className="input input-bordered text-black" />
+                                                <input type="text" name='sellerName' className="input input-bordered text-black" required defaultValue={data.sellerName} />
                                             </div>
                                             <div className="form-control">
                                                 <label className="label">
                                                     <span className="label-text">Email</span>
                                                 </label>
-                                                <input type="email" placeholder="email" name='email' className="input text-black input-bordered" />
+                                                <input type="email" placeholder="email" name='email' className="input text-black input-bordered" required defaultValue={data.email} />
                                             </div>
                                             <div className="form-control">
                                                 <label className="label">
                                                     <span className="label-text">Sub Category</span>
                                                 </label>
                                                 <div className='relative'>
-                                                    <input type='text' placeholder="sub category" name='category' className="input input-bordered w-full border-gray-300" required />
+                                                    <input type='text' placeholder="sub category" name='category' className="input input-bordered w-full border-gray-300" required defaultValue={data.category} />
                                                 </div>
                                             </div>
                                         </div>
@@ -65,7 +90,7 @@ const Update = () => {
                                                     <span className="label-text">Price</span>
                                                 </label>
                                                 <div className='relative'>
-                                                    <input type='text' placeholder="price" name='price' className="input input-bordered w-full border-gray-300" required />
+                                                    <input type='text' placeholder="price" name='price' className="input input-bordered w-full border-gray-300" required defaultValue={data.price} />
                                                 </div>
                                             </div>
                                             <div className="form-control">
@@ -73,7 +98,7 @@ const Update = () => {
                                                     <span className="label-text">Rating</span>
                                                 </label>
                                                 <div className='relative'>
-                                                    <input type='text' placeholder="rating" name='rating' className="input input-bordered w-full border-gray-300" required />
+                                                    <input type='text' placeholder="rating" name='rating' className="input input-bordered w-full border-gray-300" required defaultValue={data.rating} />
                                                 </div>
                                             </div>
                                             <div className="form-control">
@@ -81,7 +106,7 @@ const Update = () => {
                                                     <span className="label-text">Available Quantity</span>
                                                 </label>
                                                 <div className='relative'>
-                                                    <input type='text' placeholder="available quantity" name='quantity' className="input input-bordered w-full border-gray-300" required />
+                                                    <input type='text' placeholder="available quantity" name='quantity' className="input input-bordered w-full border-gray-300" required defaultValue={data.quantity} />
                                                 </div>
                                             </div>
                                             <div className="form-control">
@@ -89,7 +114,7 @@ const Update = () => {
                                                     <span className="label-text">About</span>
                                                 </label>
                                                 <div className='relative'>
-                                                    <textarea id="message" required rows="4" class="block p-4 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="about" name='about'></textarea>
+                                                    <textarea id="message" required rows="4" class="block p-4 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="about" name='about' defaultValue={data.about}></textarea>
                                                 </div>
                                             </div>
                                         </div>
