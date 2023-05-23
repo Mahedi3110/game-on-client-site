@@ -19,13 +19,13 @@ const AllProduct = () => {
                     <p className='text-orange-400 font-bold mr-2'>Search</p>
                     <input onChange={event => setQuery(event.target.value)} className='w-2/5 text-black rounded-full' type="search" name='search' placeholder='search product name' />
                 </div>
-                <ol className='grid grid-cols-6 gap-3 mt-5 bg-orange-400 text-black text-sm px-10 py-3 rounded-full'>
+                <ol className='grid grid-cols-6 gap-3 mt-5 bg-orange-400 text-black text-center text-sm px-10 py-3 rounded-full'>
                     <p>Seller Name</p>
                     <p>Product Name</p>
-                    <p className='text-end'>Sub-category</p>
-                    <p className='text-end'>Price</p>
-                    <p className='text-end -mr-7'>Available Quantity</p>
-                    <p className='text-end'>View Details</p>
+                    <p>Sub-category</p>
+                    <p>Price</p>
+                    <p>Available Quantity</p>
+                    <p>View Details</p>
                 </ol>
                 {show ?
                     loaderDatas.filter(post => {

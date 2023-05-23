@@ -11,7 +11,7 @@ import AllProducts from './components/body/AllProduct.jsx';
 import About from './components/body/About.jsx';
 import Blog from './components/body/Blog.jsx';
 import Profile from './components/body/Profile.jsx'
-import MyChoice from './components/body/MyChoice.jsx'
+import MyProduct from './components/body/MyProduct.jsx'
 import AddProduct from './components/body/AddProduct.jsx'
 import PrivateRoute from './privateRoute/PrivateRoute.jsx';
 import Home from './components/body/home/Home.jsx';
@@ -19,6 +19,7 @@ import SingleProduct from '../public/SingleProduct.js';
 import SoloProduct from '../public/SoloProduct.js';
 import ViewDetails from './components/body/ViewDetails.jsx';
 import ViewProduct from './components/body/ViewProduct.jsx';
+import Update from './components/body/Update.jsx';
 
 const router = createBrowserRouter([
   {
@@ -62,7 +63,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-choice",
-        element: <PrivateRoute><MyChoice></MyChoice></PrivateRoute>
+        element: <PrivateRoute><MyProduct></MyProduct></PrivateRoute>,
+        loader: async () => {
+          return fetch(`http://localhost:7000/addList`);
+        }
       },
       {
         path: "/add-product",
@@ -77,6 +81,13 @@ const router = createBrowserRouter([
         path: "/view-product/:id",
         element: <PrivateRoute><ViewProduct></ViewProduct></PrivateRoute>,
         loader: SoloProduct
+      },
+      {
+        path: "/update/:id",
+        element: <PrivateRoute><Update></Update></PrivateRoute>,
+        loader: async () => {
+          return fetch(`http://localhost:7000/addList`);
+        }
       }
     ]
   },

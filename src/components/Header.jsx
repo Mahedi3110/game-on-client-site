@@ -79,7 +79,7 @@ const Header = () => {
                                 <NavLink
                                     className={({ isActive }) => isActive ? 'py-2 px-3 text-white bg-orange-400 mx-2 font-bold rounded-full border-orange-400' : 'hover:bg-orange-400 py-2 px-3 rounded-full hover:text-white mx-2 text-orange-400'}
                                     to="/my-choice">
-                                    My Choice
+                                    My Products
                                 </NavLink>
                             </div>
                                 :
