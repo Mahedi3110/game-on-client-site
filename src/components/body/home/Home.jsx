@@ -16,7 +16,7 @@ const Home = () => {
 
     useEffect(() => {
         const fetchFunction = async () => {
-            const res = await fetch(`http://localhost:7000/category`);
+            const res = await fetch(`https://game-on-new-server.vercel.app/category`);
             const data = await res.json();
             setDatas(data);
             setAllCategory(data[0]?.product)

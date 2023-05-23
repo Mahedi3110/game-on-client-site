@@ -26,7 +26,7 @@ const Update = () => {
 
         const updatedValue = { photo, name, sellerName, email, category, price, rating, quantity, about }
 
-        fetch(`http://localhost:7000/addList/${data._id}`, {
+        fetch(`https://game-on-new-server.vercel.app/addList/${data._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -1,5 +1,5 @@
 const SingleProduct = async () => {
-    const res = await fetch(`http://localhost:7000/category`);
+    const res = await fetch(`https://game-on-new-server.vercel.app/category`);
     const datas = await res.json();
 
     const allData = [];

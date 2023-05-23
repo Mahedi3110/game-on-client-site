@@ -44,7 +44,7 @@ const ViewDetails = () => {
         const email = user.email;
         const addableData = { about, id, name, photo, price, email };
         // send data to the server
-        fetch('http://localhost:7000/choiceList', {
+        fetch('https://game-on-new-server.vercel.app/choiceList', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

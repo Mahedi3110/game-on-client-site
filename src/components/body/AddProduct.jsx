@@ -24,7 +24,7 @@ const AddProduct = () => {
         const about = event.target.about.value;
         const addToDB = { photo, name, sellerName, email, category, price, rating, quantity, about }
         // send data to the server
-        fetch('http://localhost:7000/addList', {
+        fetch('https://game-on-new-server.vercel.app/addList', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -5,7 +5,7 @@ const MyAllProduct = ({ ctg, cng }) => {
 
     const handleDelete = id => {
         if (confirm("Are you really want to delete this product")) {
-            fetch(`http://localhost:7000/addList/${id}`, {
+            fetch(`https://game-on-new-server.vercel.app/addList/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

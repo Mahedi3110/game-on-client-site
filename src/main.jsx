@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         path: "/all-products",
         element: <AllProducts></AllProducts>,
         loader: async () => {
-          return fetch(`http://localhost:7000/addList`);
+          return fetch(`https://game-on-new-server.vercel.app/addList`);
         }
       },
       {
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         path: "/my-choice",
         element: <PrivateRoute><MyProduct></MyProduct></PrivateRoute>,
         loader: async () => {
-          return fetch(`http://localhost:7000/addList`);
+          return fetch(`https://game-on-new-server.vercel.app/addList`);
         }
       },
       {
@@ -86,7 +86,7 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <PrivateRoute><Update></Update></PrivateRoute>,
         loader: async () => {
-          return fetch(`http://localhost:7000/addList`);
+          return fetch(`https://game-on-new-server.vercel.app/addList`);
         }
       }
     ]
