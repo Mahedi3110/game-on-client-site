@@ -13,7 +13,6 @@ const MyProduct = () => {
 
     return (
         <div className='bg-black h-screen pt-32 px-24'>
-
             <ol
                 data-aos="fade-up"
                 data-aos-easing="linear"
